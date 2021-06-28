@@ -259,9 +259,9 @@ int main()
     Bitset<8> b3 = {"AbAAAb", 'A', 'b'};
     b3.print();
     b3 ^ b2;
-   // b3 ^ Bitset<8>{12};
-   // b3 ^= Bitset<8>{12};
-   // b3.print();
-   // std::cout << b3 << std::endl;
+    b3 ^ Bitset<8>{12};
+    b3 ^= Bitset<8>{12};
+    b3.print();
+    std::cout << b3 << std::endl;
     return 0;
 }
