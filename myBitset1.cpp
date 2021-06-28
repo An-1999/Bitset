@@ -214,6 +214,22 @@ Bitset<N> operator&(const Bitset<N>& lhs, const Bitset<N>& rhs)
 }
 
 template< std::size_t N >
+Bitset<N> operator&(const Bitset<N>& lhs, unsigned long long int rhs)
+{
+    Bitset<N> current = {rhs};
+    current &= lhs;
+    return current;
+}
+
+template< std::size_t N >
+Bitset<N> operator&(unsigned long long int rhs, const Bitset<N>& lhs)
+{
+    Bitset<N> current = {rhs};
+    current &= lhs;
+    return current;
+}
+
+template< std::size_t N >
 Bitset<N> operator|(const Bitset<N>& lhs, const Bitset<N>& rhs)
 {
     Bitset<N> current = lhs;
@@ -222,10 +238,43 @@ Bitset<N> operator|(const Bitset<N>& lhs, const Bitset<N>& rhs)
 }
 
 template< std::size_t N >
+Bitset<N> operator|(const Bitset<N>& lhs, unsigned long long int rhs)
+{
+    Bitset<N> current = {rhs};
+    current |= lhs;
+    return current;
+}
+
+template< std::size_t N >
+Bitset<N> operator|(unsigned long long int rhs, const Bitset<N>& lhs)
+{
+    Bitset<N> current = {rhs};
+    current |= lhs;
+    return current;
+}
+
+
+template< std::size_t N >
 Bitset<N> operator^(const Bitset<N>& lhs, const Bitset<N>& rhs)
 {
     Bitset<N> current = lhs;
     current ^= rhs;
+    return current;
+}
+
+template< std::size_t N >
+Bitset<N> operator^(const Bitset<N>& lhs, unsigned long long int rhs)
+{
+    Bitset<N> current = {rhs};
+    current ^= lhs;
+    return current;
+}
+
+template< std::size_t N >
+Bitset<N> operator^(unsigned long long int rhs, const Bitset<N>& lhs)
+{
+    Bitset<N> current = {rhs};
+    current ^= lhs;
     return current;
 }
 
@@ -246,5 +295,7 @@ int main()
     Bitset<37> b5 = Bitset<37>{12};
     std::cout << b5 << std::endl;
     b5.set(16);
+    std::cout << b5 << std::endl;
+    b5 = b5 & 0;
     std::cout << b5 << std::endl;
 }
